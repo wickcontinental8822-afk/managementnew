@@ -93,7 +93,7 @@ export function Sidebar({ activeView, onViewChange }: SidebarProps) {
           })}
         </nav>
 
-        {user?.role === 'client' && (
+        {/* {user?.role === 'client' && (
           <div className="mt-8 p-4 bg-white rounded-lg border border-red-200">
             <h3 className="font-semibold text-gray-900 mb-2">Quick Guide</h3>
             <div className="text-sm text-gray-600 space-y-1">
@@ -104,7 +104,7 @@ export function Sidebar({ activeView, onViewChange }: SidebarProps) {
               <p>• Track team responses</p>
             </div>
           </div>
-        )}
+        )} */} 
       </div>
     </aside>
   );

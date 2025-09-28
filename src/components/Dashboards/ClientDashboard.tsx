@@ -153,66 +153,6 @@ export function ClientDashboard({ activeView, onViewChange }: ClientDashboardPro
           <p className="text-sm text-gray-500 mt-2">Out of {projectStages.length} total</p>
         </div>
       </div>
-
-      {/* Stage Progress Overview */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Project Stages Overview</h3>
-        <div className="space-y-3">
-          {projectStages.map(stage => (
-            <div key={stage.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-              <div className="flex items-center space-x-3">
-                <div className={`w-3 h-3 rounded-full ${
-                  stage.approval_status === 'approved' ? 'bg-green-500' :
-                  stage.approval_status === 'rejected' ? 'bg-red-500' :
-                  'bg-orange-500'
-                }`} />
-                <span className="font-medium text-gray-900">{stage.name}</span>
-              </div>
-              <div className="flex items-center space-x-4">
-                <span className="text-sm text-gray-600">{stage.progress_percentage}%</span>
-                <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                  stage.approval_status === 'approved' ? 'bg-green-100 text-green-800' :
-                  stage.approval_status === 'rejected' ? 'bg-red-100 text-red-800' :
-                  'bg-orange-100 text-orange-800'
-                }`}>
-                  {stage.approval_status}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Quick Actions */}
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-        <h3 className="font-semibold text-gray-900 mb-3">What you can do:</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700 mb-4">
-          <div className="space-y-2">
-            <p><strong>✓ Review Stages:</strong> Approve or request changes for each project phase</p>
-            <p><strong>✓ Upload Files:</strong> Share reference materials and requirements</p>
-          </div>
-          <div className="space-y-2">
-            <p><strong>✓ Add Comments:</strong> Provide feedback that becomes tasks for the team</p>
-            <p><strong>✓ Track Progress:</strong> Monitor real-time project advancement</p>
-          </div>
-        </div>
-        
-        {/* Brochure Feedback Report Button */}
-        {clientBrochureProjects.length > 0 && (
-          <div className="pt-4 border-t border-red-200">
-            <button
-              onClick={() => {
-                setSelectedBrochureProject(clientBrochureProjects[0]);
-                setShowFeedbackReport(true);
-              }}
-              className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2"
-            >
-              <CheckSquare className="w-4 h-4" />
-              <span>View Brochure Feedback Report</span>
-            </button>
-          </div>
-        )}
-      </div>
         </>
       )}
     </div>
@@ -381,7 +321,6 @@ export function ClientDashboard({ activeView, onViewChange }: ClientDashboardPro
       </div>
     );
   };
-
 
   // Show project detail if selected
   if (showProjectDetail && selectedProject) {
